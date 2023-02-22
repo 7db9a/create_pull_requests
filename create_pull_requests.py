@@ -22,7 +22,8 @@ base_branch = args.base
 head_branch = args.head
 
 # Define your personal access token with the appropriate scopes for making API requests
-token = os.environ.get('GITHUB_TOKEN')
+with open('env.list', 'r') as env_file:
+    token = env_file.readline().split('=')[1].strip()
 
 # Define the title and body of the pull request
 title = args.title
